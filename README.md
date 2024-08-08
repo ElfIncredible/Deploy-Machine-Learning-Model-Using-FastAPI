@@ -8,6 +8,8 @@
   - [Imports and Setup](#imports-and-setup)
   - [Create FastAPI Instance](#create-fastapi-instance)
   - [Define Input Model](#define-input-model)
+  - [Load Saved Models and Scalers](#load-saved-models-and-scalers)
+  - [Define Prediction Endpoint](#define-prediction-endpoint)
 
 ## Project Overview
 
@@ -33,3 +35,14 @@
   - **BMI** (float)
   - **DiabetesPedigreeFunction** (float)
   - **Age** (integer)
+
+### Load Saved Models and Scalers
+- **diabetes_model** and diabetes_scaler are loaded from disk using pickle. These are assumed to be pre-trained machine learning models and scalers.
+
+### Define Prediction Endpoint
+- @app.post('/diabetes_prediction') is a POST endpoint that receives input data in the form of diabetes_input.
+- input_parameters.dict() converts the input data from the Pydantic model into a dictionary.
+- The dictionary values are extracted and organized into a list.
+- This list is scaled using the diabetes_scaler.
+- The scaled data is fed into the diabetes_model to make a prediction.
+- Based on the prediction (0 or 1), the endpoint returns a message indicating whether the person is diabetic or not.

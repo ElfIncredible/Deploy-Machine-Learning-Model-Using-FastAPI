@@ -12,6 +12,9 @@ The goal of the project is to predict whether a person is diabetic based on thei
     - [Define Input Model](#define-input-model)
     - [Load Saved Models and Scalers](#load-saved-models-and-scalers)
     - [Define Prediction Endpoint](#define-prediction-endpoint)
+    - [Return Response](#return-response)
+  - [Client Script - Client-side](#client-script---client-side)
+    - [Imports](#imports)
 
 ## Project Overview
 The project demonstrates how to set up a machine learning model as a web service using FastAPI, and how to interact with this service using a Python script. Specifically, it allows users to input health data (such as glucose levels, BMI, age, etc.) and get a prediction on whether the person is likely to have diabetes.
@@ -66,7 +69,7 @@ Here’s how it works:
 - ### Return Response
   - The response is a simple string message: "The person is diabetic" or "The person is not diabetic", depending on the model's prediction.
  
-## Client Script (Client-side):
+## Client Script - Client-side
 - **Purpose:** This script acts as a client that sends data to the FastAPI server and receives a prediction.
 - **Process:**
   - It defines a set of health metrics for a person.
@@ -75,12 +78,12 @@ Here’s how it works:
   - Receives and prints the prediction result from the server.
  
 Here’s how it works:
-- ## Imports:
+- ## Imports
   - **json:** Used to convert Python dictionaries to JSON strings.
   - **requests:** A popular Python library for making HTTP requests.
 - ## API Endpoint URL:
   - **url = 'http://127.0.0.1:8000/diabetes_prediction':** This is the URL where the FastAPI app is running locally. The /diabetes_prediction endpoint is specifically where you send the data.
-- ## Input Data:
+- ## Input Data
 input_data_for_model is a dictionary containing the health-related information required by the model:
   - **Pregnancies:** Number of times the person has been pregnant.
   - **Glucose:** Blood glucose level.
@@ -90,9 +93,9 @@ input_data_for_model is a dictionary containing the health-related information r
   - **BMI:** Body Mass Index.
   - **DiabetesPedigreeFunction:** A function that scores the likelihood of diabetes based on family history.
   - **Age:** Age of the person.
-- ## Convert to JSON:
+- ## Convert to JSON
   - **input_json = json.dumps(input_data_for_model):** The dictionary is converted to a JSON string, which is the format needed for sending data in the HTTP request.
-- ## Send POST Request:
+- ## Send POST Request
   - **response = requests.post(url, data=input_json):** A POST request is made to the specified URL with the input data. The data parameter contains the JSON string to be sent to the server.
-- ## Print Response:
+- ## Print Response
   - **print(response.text):** The response from the server is printed. This response will be the prediction result from the FastAPI endpoint, telling you whether the person is diabetic or not.

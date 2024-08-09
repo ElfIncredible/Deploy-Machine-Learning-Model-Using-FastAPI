@@ -15,6 +15,11 @@ The goal of the project is to predict whether a person is diabetic based on thei
     - [Return Response](#return-response)
   - [Client Script - Client-side](#client-script---client-side)
     - [Imports](#imports)
+    - [API Endpoint URL](#api-endpoint-url)
+    - [Input Data](#input-data)
+    - [Convert to JSON](#convert-to-json)
+    - [Send POST Request](#send-post-request)
+    - [Print Response](#print-response)
 
 ## Project Overview
 The project demonstrates how to set up a machine learning model as a web service using FastAPI, and how to interact with this service using a Python script. Specifically, it allows users to input health data (such as glucose levels, BMI, age, etc.) and get a prediction on whether the person is likely to have diabetes.
@@ -81,7 +86,7 @@ Here’s how it works:
 - ## Imports
   - **json:** Used to convert Python dictionaries to JSON strings.
   - **requests:** A popular Python library for making HTTP requests.
-- ## API Endpoint URL:
+- ## API Endpoint URL
   - **url = 'http://127.0.0.1:8000/diabetes_prediction':** This is the URL where the FastAPI app is running locally. The /diabetes_prediction endpoint is specifically where you send the data.
 - ## Input Data
 input_data_for_model is a dictionary containing the health-related information required by the model:

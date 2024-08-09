@@ -1,5 +1,5 @@
 # Deploy Machine Learning Model Using FastAPI
-
+This FastAPI application provides an endpoint for predicting diabetes status based on input features, using a pre-trained machine learning model and scaler.
 
 ## Table of Contents
 - [Project Overview](#project-overview)

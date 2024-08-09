@@ -1,0 +1,1 @@
+C:\Users\Gran\OneDrive\Desktop\ML Models as API\Code>uvicorn ML_API:app

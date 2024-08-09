@@ -26,6 +26,7 @@ This project consists of two main parts: a server-side application built with Fa
     - Feeds the scaled data into the model to make a prediction.
     - Returns a message indicating whether the person is diabetic or not based on the model's prediction.
 
+Here’s a breakdown of how it works:
 - ### Imports and Setup
   - **FastAPI** and **BaseModel** from fastapi and pydantic are imported to create and manage the API and data validation.
   - **pickle** is used to load pre-trained models and scalers.
@@ -45,16 +46,16 @@ This project consists of two main parts: a server-side application built with Fa
     - **DiabetesPedigreeFunction** (float)
     - **Age** (integer)
 
-### Load Saved Models and Scalers
-- **diabetes_model** and diabetes_scaler are loaded from disk using pickle. These are assumed to be pre-trained machine learning models and scalers.
+- ### Load Saved Models and Scalers
+  - **diabetes_model** and diabetes_scaler are loaded from disk using pickle. These are assumed to be pre-trained machine learning models and scalers.
 
-### Define Prediction Endpoint
-- @app.post('/diabetes_prediction') is a POST endpoint that receives input data in the form of diabetes_input.
-- input_parameters.dict() converts the input data from the Pydantic model into a dictionary.
-- The dictionary values are extracted and organized into a list.
-- This list is scaled using the diabetes_scaler.
-- The scaled data is fed into the diabetes_model to make a prediction.
-- Based on the prediction (0 or 1), the endpoint returns a message indicating whether the person is diabetic or not.
+- ### Define Prediction Endpoint
+  - @app.post('/diabetes_prediction') is a POST endpoint that receives input data in the form of diabetes_input.
+  - input_parameters.dict() converts the input data from the Pydantic model into a dictionary.
+  - The dictionary values are extracted and organized into a list.
+  - This list is scaled using the diabetes_scaler.
+  - The scaled data is fed into the diabetes_model to make a prediction.
+  - Based on the prediction (0 or 1), the endpoint returns a message indicating whether the person is diabetic or not.
 
-### Return Response
-- The response is a simple string message: "The person is diabetic" or "The person is not diabetic", depending on the model's prediction.
+- ### Return Response
+  - The response is a simple string message: "The person is diabetic" or "The person is not diabetic", depending on the model's prediction.

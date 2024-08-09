@@ -46,3 +46,6 @@
 - This list is scaled using the diabetes_scaler.
 - The scaled data is fed into the diabetes_model to make a prediction.
 - Based on the prediction (0 or 1), the endpoint returns a message indicating whether the person is diabetic or not.
+
+### Return Response
+- The response is a simple string message: "The person is diabetic" or "The person is not diabetic", depending on the model's prediction.

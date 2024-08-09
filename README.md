@@ -59,3 +59,11 @@ Here’s a breakdown of how it works:
 
 - ### Return Response
   - The response is a simple string message: "The person is diabetic" or "The person is not diabetic", depending on the model's prediction.
+ 
+## Client Script (Client-side):
+- **Purpose:** This script acts as a client that sends data to the FastAPI server and receives a prediction.
+- **Process:**
+  - It defines a set of health metrics for a person.
+  - Converts this data into JSON format, which is suitable for sending via HTTP.
+  - Sends the data to the FastAPI server via a POST request.
+  - Receives and prints the prediction result from the server.
